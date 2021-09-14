@@ -1,9 +1,11 @@
 services:
-    happyr.google.api.client:
-        class: HappyR\Google\ApiBundle\Services\GoogleClient
+    HappyR\Google\ApiBundle\Services\GoogleClient:
         arguments: ["%happy_r_google_api%", "@?logger"]
         tags:
             - { name: monolog.logger, channel: google_client }
+
+    happyr.google.api.client:
+        alias: HappyR\Google\ApiBundle\Services\GoogleClient
 
     happyr.google.api.analytics:
         class: HappyR\Google\ApiBundle\Services\AnalyticsService
